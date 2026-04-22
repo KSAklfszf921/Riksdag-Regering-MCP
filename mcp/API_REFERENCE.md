@@ -1193,4 +1193,4 @@ try {
 
 **Version:** 2.0.0
 **Last Updated:** 2025-11-19
-**Support:** [GitHub Issues](https://github.com/KSAklfszf921/Riksdag-Regering-MCP/issues)
+**Support:** [GitHub Issues](https://github.com/isakskogstad/Riksdag-Regering-MCP/issues)

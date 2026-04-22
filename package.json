@@ -25,10 +25,10 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "author": "Riksdag-Regering.AI",
+  "author": "isakskogstad",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/KSAklfszf921/Riksdag-Regering.AI.git"
+    "url": "https://github.com/isakskogstad/Riksdag-Regering-MCP.git"
   }
 }

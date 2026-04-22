@@ -6,7 +6,7 @@
 
 ## Registration Information
 
-**Server Name:** `io.github.KSAklfszf921/riksdag-regering-mcp`
+**Server Name:** `io.github.isakskogstad/riksdag-regering-mcp`
 **Current Version:** 2.0.0
 **Repository ID:** 1087404908
 
@@ -53,7 +53,7 @@ make publisher
 After publishing, verify registration:
 
 ```bash
-curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.KSAklfszf921/riksdag-regering-mcp"
+curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.isakskogstad/riksdag-regering-mcp"
 ```
 
 ## Documentation
@@ -76,7 +76,7 @@ npm install -g riksdag-regering-mcp
 ### 2. Local Installation
 
 ```bash
-git clone https://github.com/KSAklfszf921/Riksdag-Regering-MCP.git
+git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
 cd Riksdag-Regering-MCP/mcp
 npm install && npm run build
 ```

@@ -16,8 +16,8 @@ Den här guiden beskriver den nuvarande, helt API-drivna architekturen. MCP-serv
 
 1. Klona projektet och installera beroenden:
    ```bash
-   git clone https://github.com/KSAklfszf921/Riksdag-Regering.AI.git
-   cd Riksdag-Regering.AI
+   git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
+   cd Riksdag-Regering-MCP
    npm run mcp:install
    ```
 2. Bygg och starta MCP-servern:

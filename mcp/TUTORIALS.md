@@ -30,7 +30,7 @@ npm install -g riksdag-regering-mcp
 **Alternativ 2: Lokal Installation**
 
 ```bash
-git clone https://github.com/KSAklfszf921/Riksdag-Regering-MCP.git
+git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
 cd Riksdag-Regering-MCP/mcp
 npm install && npm run build
 ```
@@ -805,11 +805,11 @@ if (!result.success) {
 ## Resurser
 
 - **API Reference:** [API_REFERENCE.md](API_REFERENCE.md)
-- **GitHub:** https://github.com/KSAklfszf921/Riksdag-Regering-MCP
+- **GitHub:** https://github.com/isakskogstad/Riksdag-Regering-MCP
 - **npm Package:** https://www.npmjs.com/package/riksdag-regering-mcp
 
 ---
 
 **Version:** 2.0.0
 **Last Updated:** 2025-11-19
-**Need Help?** [GitHub Issues](https://github.com/KSAklfszf921/Riksdag-Regering-MCP/issues)
+**Need Help?** [GitHub Issues](https://github.com/isakskogstad/Riksdag-Regering-MCP/issues)

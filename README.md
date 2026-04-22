@@ -2,7 +2,7 @@
 
 # Riksdag & Regering MCP-server
 
-[![MCP Registry](https://img.shields.io/badge/MCP%20Registry-Published-brightgreen)](https://registry.modelcontextprotocol.io/servers/io.github.KSAklfszf921/Riksdag-Regering-MCP)
+[![MCP Registry](https://img.shields.io/badge/MCP%20Registry-Published-brightgreen)](https://registry.modelcontextprotocol.io/servers/io.github.isakskogstad/Riksdag-Regering-MCP)
 [![MCP Protocol](https://img.shields.io/badge/MCP-2025--03--26-green)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -78,8 +78,8 @@ För utveckling eller om du vill modifiera servern lokalt:
 
 ```bash
 # Klona repository
-git clone https://github.com/KSAklfszf921/Riksdag-Regering.AI.git
-cd Riksdag-Regering.AI
+git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
+cd Riksdag-Regering-MCP
 
 # Installera dependencies
 npm run mcp:install
@@ -98,7 +98,7 @@ npm start
   "mcpServers": {
     "riksdag-regering": {
       "command": "node",
-      "args": ["/absolut/sökväg/till/Riksdag-Regering.AI/mcp/dist/index.js"]
+      "args": ["/absolut/sökväg/till/Riksdag-Regering-MCP/mcp/dist/index.js"]
     }
   }
 }

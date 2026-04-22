@@ -234,7 +234,7 @@ function createApp() {
         "/mcp": "POST - MCP protocol endpoint",
         "/sse": "GET - Server-Sent Events streaming",
       },
-      documentation: "https://github.com/KSAklfszf921/Riksdag-Regering.AI",
+      documentation: "https://github.com/isakskogstad/Riksdag-Regering-MCP",
       database: {
         connected: true,
         totalRecords: "14,372+",

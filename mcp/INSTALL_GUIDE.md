@@ -8,8 +8,8 @@
 
 1. **Kloning och installation**
    ```bash
-   git clone https://github.com/KSAklfszf921/Riksdag-Regering.AI.git
-   cd Riksdag-Regering.AI/mcp
+   git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
+   cd Riksdag-Regering-MCP/mcp
    npm install
    ```
 

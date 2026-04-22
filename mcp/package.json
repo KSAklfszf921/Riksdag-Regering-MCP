@@ -1,7 +1,7 @@
 {
   "name": "riksdag-regering-mcp",
   "version": "2.2.1",
-  "mcpName": "io.github.KSAklfszf921/riksdag-regering-mcp",
+  "mcpName": "io.github.isakskogstad/riksdag-regering-mcp",
   "description": "Professionell MCP server för att hämta, söka, analysera och jämföra data från Riksdagen och Regeringskansliet. Innehåller 27 verktyg och 5 resources med förbättrad säkerhet och response validation.",
   "main": "dist/index.js",
   "type": "module",
@@ -29,15 +29,15 @@
     "parliament",
     "model-context-protocol"
   ],
-  "author": "Riksdag-Regering.AI",
+  "author": "isakskogstad",
   "license": "MIT",
-  "homepage": "https://ksaklfszf921.github.io/Riksdag-Regering-MCP/",
+  "homepage": "https://github.com/isakskogstad/Riksdag-Regering-MCP",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/KSAklfszf921/Riksdag-Regering-MCP.git"
+    "url": "git+https://github.com/isakskogstad/Riksdag-Regering-MCP.git"
   },
   "bugs": {
-    "url": "https://github.com/KSAklfszf921/Riksdag-Regering-MCP/issues"
+    "url": "https://github.com/isakskogstad/Riksdag-Regering-MCP/issues"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",

@@ -1,11 +1,11 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
-  "name": "io.github.KSAklfszf921/riksdag-regering-mcp",
+  "name": "io.github.isakskogstad/riksdag-regering-mcp",
   "title": "Riksdag & Regering MCP",
   "description": "Direktkopplad MCP-server med öppna API-anrop mot Riksdagen och g0v.se",
   "version": "2.1.0",
   "repository": {
-    "url": "https://github.com/KSAklfszf921/Riksdag-Regering-MCP",
+    "url": "https://github.com/isakskogstad/Riksdag-Regering-MCP",
     "source": "github",
     "id": "1087404908"
   },
