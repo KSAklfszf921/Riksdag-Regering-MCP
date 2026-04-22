@@ -15,16 +15,5 @@
       "mimeType": "image/png",
       "sizes": ["800x800"]
     }
-  ],
-  "packages": [
-    {
-      "registryType": "npm",
-      "identifier": "riksdag-regering-mcp",
-      "version": "2.0.1",
-      "runtimeHint": "npx",
-      "transport": {
-        "type": "stdio"
-      }
-    }
   ]
 }

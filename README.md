@@ -33,48 +33,7 @@ MCP-servern exponerar 32 specialiserade verktyg för att hämta data och underla
 
 ## Snabbstart
 
-### 📦 Alternativ 1: npm Package (Rekommenderat)
-
-Installera direkt från npm registry:
-
-**Fördelar:**
-
-- ✅ Enkel installation med ett kommando
-- ✅ Automatiska uppdateringar via npm
-- ✅ Fungerar i alla MCP-kompatibla miljöer
-
-```bash
-# Installera globalt
-npm install -g riksdag-regering-mcp
-
-# Eller installera lokalt i ditt projekt
-npm install riksdag-regering-mcp
-```
-
-#### STDIO-konfiguration för Claude Desktop
-
-```json
-{
-  "mcpServers": {
-    "riksdag-regering": {
-      "command": "npx",
-      "args": ["riksdag-regering-mcp"]
-    }
-  }
-}
-```
-
----
-
-### 💻 Alternativ 2: Lokal Installation från Källkod
-
-För utveckling eller om du vill modifiera servern lokalt:
-
-**Fördelar:**
-
-- ✅ Full kontroll över data och prestanda
-- ✅ Kan anpassa och utöka funktionalitet
-- ✅ Fungerar offline (efter initial setup)
+### 💻 Installation från källkod
 
 ```bash
 # Klona repository
@@ -84,14 +43,13 @@ cd Riksdag-Regering-MCP
 # Installera dependencies
 npm run mcp:install
 
-# Bygg och starta
-cd mcp
-npm run build
-npm start
+# Bygg servern
+npm run mcp:build
 ```
 
-<details>
-<summary>Lokal STDIO-konfiguration för Claude Desktop</summary>
+#### STDIO-konfiguration för Claude Desktop
+
+Lägg till följande i din Claude Desktop-config (`~/Library/Application Support/Claude/claude_desktop_config.json` på macOS):
 
 ```json
 {
@@ -104,9 +62,7 @@ npm start
 }
 ```
 
-</details>
-
----
+Starta om Claude Desktop — servern startas automatiskt via stdio.
 
 ---
 

@@ -65,20 +65,13 @@ curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.isaks
 
 ## Current Access Methods
 
-While awaiting official registry listing, the server is accessible via:
-
-### 1. npm Package
-
-```bash
-npm install -g riksdag-regering-mcp
-```
-
-### 2. Local Installation
+While awaiting official registry listing, install from source:
 
 ```bash
 git clone https://github.com/isakskogstad/Riksdag-Regering-MCP.git
-cd Riksdag-Regering-MCP/mcp
-npm install && npm run build
+cd Riksdag-Regering-MCP
+npm run mcp:install
+npm run mcp:build
 ```
 
 ---
