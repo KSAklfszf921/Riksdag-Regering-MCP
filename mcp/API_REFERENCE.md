@@ -24,6 +24,7 @@ Komplett referens för alla 27 verktyg i Riksdag & Regering MCP Server.
 Sök ledamöter i riksdagen efter namn, parti, valkrets eller status.
 
 **Parameters:**
+
 ```typescript
 {
   namn?: string;        // Namn att söka efter (förnamn eller efternamn)
@@ -35,6 +36,7 @@ Sök ledamöter i riksdagen efter namn, parti, valkrets eller status.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -56,11 +58,13 @@ Sök ledamöter i riksdagen efter namn, parti, valkrets eller status.
 ```
 
 **Use Cases:**
+
 - Hitta alla ledamöter från ett specifikt parti
 - Sök ledamöter från en viss valkrets
 - Lista alla nuvarande tjänstgörande ledamöter
 
 **Example:**
+
 ```javascript
 // Sök alla socialdemokrater från Stockholm
 {
@@ -77,6 +81,7 @@ Sök ledamöter i riksdagen efter namn, parti, valkrets eller status.
 Sök riksdagsdokument som motioner, propositioner, betänkanden.
 
 **Parameters:**
+
 ```typescript
 {
   doktyp?: string;      // Dokumenttyp (mot, prop, bet, skr)
@@ -90,6 +95,7 @@ Sök riksdagsdokument som motioner, propositioner, betänkanden.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -113,6 +119,7 @@ Sök riksdagsdokument som motioner, propositioner, betänkanden.
 ```
 
 **Document Types:**
+
 - `mot` - Motion
 - `prop` - Proposition
 - `bet` - Betänkande
@@ -122,11 +129,13 @@ Sök riksdagsdokument som motioner, propositioner, betänkanden.
 - `fr` - Fråga (muntlig)
 
 **Use Cases:**
+
 - Hitta alla motioner om ett specifikt ämne
 - Sök propositioner från ett visst riksmöte
 - Lista betänkanden från ett utskott
 
 **Example:**
+
 ```javascript
 // Sök alla propositioner från 2024/25
 {
@@ -143,6 +152,7 @@ Sök riksdagsdokument som motioner, propositioner, betänkanden.
 Sök anföranden i riksdagens debatter.
 
 **Parameters:**
+
 ```typescript
 {
   talare?: string;      // Talare att söka efter
@@ -156,6 +166,7 @@ Sök anföranden i riksdagens debatter.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -177,6 +188,7 @@ Sök anföranden i riksdagens debatter.
 ```
 
 **Use Cases:**
+
 - Hitta alla anföranden från en specifik ledamot
 - Sök debatter om ett visst ämne
 - Analysera partiers retorik kring en fråga
@@ -188,6 +200,7 @@ Sök anföranden i riksdagens debatter.
 Sök voteringshistorik i riksdagen.
 
 **Parameters:**
+
 ```typescript
 {
   rm?: string;          // Riksmöte (t.ex. "2024/25")
@@ -199,6 +212,7 @@ Sök voteringshistorik i riksdagen.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -223,6 +237,7 @@ Sök voteringshistorik i riksdagen.
 ```
 
 **Use Cases:**
+
 - Hitta alla voteringar i ett riksmöte
 - Analysera röstningsutfall
 - Spåra partiernas röstmönster
@@ -234,6 +249,7 @@ Sök voteringshistorik i riksdagen.
 Sök regeringsdokument (pressmeddelanden, SOU, direktiv).
 
 **Parameters:**
+
 ```typescript
 {
   dataType: string;       // REQUIRED: "pressmeddelanden", "propositioner",
@@ -247,6 +263,7 @@ Sök regeringsdokument (pressmeddelanden, SOU, direktiv).
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -267,6 +284,7 @@ Sök regeringsdokument (pressmeddelanden, SOU, direktiv).
 ```
 
 **Data Types:**
+
 - `pressmeddelanden` - Pressmeddelanden
 - `propositioner` - Propositioner
 - `departementsserien` - Departementsserien (Ds)
@@ -275,6 +293,7 @@ Sök regeringsdokument (pressmeddelanden, SOU, direktiv).
 - `rapporter` - Rapporter
 
 **Use Cases:**
+
 - Hitta alla pressmeddelanden från ett departement
 - Sök SOU-betänkanden om ett ämne
 - Lista propositioner från regeringen
@@ -288,6 +307,7 @@ Sök regeringsdokument (pressmeddelanden, SOU, direktiv).
 Analysera fördelningen av ledamöter per parti i riksdagen.
 
 **Parameters:**
+
 ```typescript
 {
   valkrets?: string;    // Filtrera efter valkrets (optional)
@@ -295,6 +315,7 @@ Analysera fördelningen av ledamöter per parti i riksdagen.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -322,6 +343,7 @@ Analysera fördelningen av ledamöter per parti i riksdagen.
 ```
 
 **Use Cases:**
+
 - Visa partifördelning i riksdagen
 - Jämför partifördelning mellan valkretsar
 - Analysera majoritetsförhållanden
@@ -333,13 +355,15 @@ Analysera fördelningen av ledamöter per parti i riksdagen.
 Detaljerad analys av en specifik votering.
 
 **Parameters:**
+
 ```typescript
 {
-  votering_id: string;  // REQUIRED: ID för voteringen
+  votering_id: string; // REQUIRED: ID för voteringen
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -368,6 +392,7 @@ Detaljerad analys av en specifik votering.
 ```
 
 **Use Cases:**
+
 - Analysera röstningsutfall
 - Visa hur partier röstade
 - Identifiera avvikare från partilinjen
@@ -379,6 +404,7 @@ Detaljerad analys av en specifik votering.
 Analysera en ledamots aktivitet (anföranden, röster, dokument).
 
 **Parameters:**
+
 ```typescript
 {
   intressent_id: string;  // REQUIRED: Ledamotens intressent ID
@@ -388,6 +414,7 @@ Analysera en ledamots aktivitet (anföranden, röster, dokument).
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -417,6 +444,7 @@ Analysera en ledamots aktivitet (anföranden, röster, dokument).
 ```
 
 **Use Cases:**
+
 - Mät ledamots aktivitetsnivå
 - Jämför aktivitet över tid
 - Identifiera mest aktiva ledamöter
@@ -428,6 +456,7 @@ Analysera en ledamots aktivitet (anföranden, röster, dokument).
 Statistik över dokument från riksdagen.
 
 **Parameters:**
+
 ```typescript
 {
   doktyp?: string;      // Dokumenttyp att analysera
@@ -438,6 +467,7 @@ Statistik över dokument från riksdagen.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -469,6 +499,7 @@ Statistik över dokument från riksdagen.
 Tidsserieanalys av parlamentarisk aktivitet.
 
 **Parameters:**
+
 ```typescript
 {
   dataType: string;       // REQUIRED: "dokument", "anforanden", "voteringar"
@@ -479,6 +510,7 @@ Tidsserieanalys av parlamentarisk aktivitet.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -514,6 +546,7 @@ Tidsserieanalys av parlamentarisk aktivitet.
 Detaljerad analys av ett partis totala aktivitet över tid.
 
 **Parameters:**
+
 ```typescript
 {
   parti: string;        // REQUIRED: Parti (S, M, SD, V, MP, C, L, KD)
@@ -523,6 +556,7 @@ Detaljerad analys av ett partis totala aktivitet över tid.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -567,14 +601,16 @@ Detaljerad analys av ett partis totala aktivitet över tid.
 Jämför två ledamöters aktiviteter och röstningsstatistik.
 
 **Parameters:**
+
 ```typescript
 {
-  intressent_id_1: string;  // REQUIRED: Första ledamotens ID
-  intressent_id_2: string;  // REQUIRED: Andra ledamotens ID
+  intressent_id_1: string; // REQUIRED: Första ledamotens ID
+  intressent_id_2: string; // REQUIRED: Andra ledamotens ID
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -606,14 +642,16 @@ Jämför två ledamöters aktiviteter och röstningsstatistik.
 Jämför partiers röstbeteende mellan två voteringar.
 
 **Parameters:**
+
 ```typescript
 {
-  votering_id_1: string;  // REQUIRED: Första voteringens ID
-  votering_id_2: string;  // REQUIRED: Andra voteringens ID
+  votering_id_1: string; // REQUIRED: Första voteringens ID
+  votering_id_2: string; // REQUIRED: Andra voteringens ID
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -645,6 +683,7 @@ Jämför partiers röstbeteende mellan två voteringar.
 Korsreferera dokument från riksdagen och regeringen om samma ämne.
 
 **Parameters:**
+
 ```typescript
 {
   searchTerm: string;   // REQUIRED: Sökterm för att hitta relaterade dokument
@@ -653,6 +692,7 @@ Korsreferera dokument från riksdagen och regeringen om samma ämne.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -690,6 +730,7 @@ Korsreferera dokument från riksdagen och regeringen om samma ämne.
 Jämför två partiers aktiviteter och statistik.
 
 **Parameters:**
+
 ```typescript
 {
   parti_1: string;      // REQUIRED: Första partiet (S, M, SD, etc.)
@@ -700,6 +741,7 @@ Jämför två partiers aktiviteter och statistik.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -735,6 +777,7 @@ Jämför två partiers aktiviteter och statistik.
 Topplistor för talare, partier, utskott eller dokumenttyper.
 
 **Parameters:**
+
 ```typescript
 {
   category: string;     // REQUIRED: "talare", "partier", "utskott", "dokumenttyper"
@@ -745,6 +788,7 @@ Topplistor för talare, partier, utskott eller dokumenttyper.
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -769,13 +813,15 @@ Topplistor för talare, partier, utskott eller dokumenttyper.
 Analysera ett specifikt riksmöte (dokument, voteringar, anföranden).
 
 **Parameters:**
+
 ```typescript
 {
-  rm: string;  // REQUIRED: Riksmöte (t.ex. "2024/25")
+  rm: string; // REQUIRED: Riksmöte (t.ex. "2024/25")
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -806,6 +852,7 @@ Analysera ett specifikt riksmöte (dokument, voteringar, anföranden).
 Senaste parlamentariska aktiviteten (sista 24h, 7 dagar, 30 dagar).
 
 **Parameters:**
+
 ```typescript
 {
   period?: string;  // "24h", "7d", "30d" (default: "7d")
@@ -813,6 +860,7 @@ Senaste parlamentariska aktiviteten (sista 24h, 7 dagar, 30 dagar).
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -836,6 +884,7 @@ Senaste parlamentariska aktiviteten (sista 24h, 7 dagar, 30 dagar).
 Sök över alla datakällor samtidigt (dokument, anföranden, ledamöter, pressmeddelanden).
 
 **Parameters:**
+
 ```typescript
 {
   query: string;      // REQUIRED: Sökterm
@@ -844,6 +893,7 @@ Sök över alla datakällor samtidigt (dokument, anföranden, ledamöter, pressm
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -867,6 +917,7 @@ Sök över alla datakällor samtidigt (dokument, anföranden, ledamöter, pressm
 Mest impaktfulla anföranden baserat på längd, reaktioner eller refererade.
 
 **Parameters:**
+
 ```typescript
 {
   metric?: string;      // "length", "references" (default: "length")
@@ -883,6 +934,7 @@ Mest impaktfulla anföranden baserat på längd, reaktioner eller refererade.
 Mest betydelsefulla voteringar baserat på marginaler eller deltagande.
 
 **Parameters:**
+
 ```typescript
 {
   metric?: string;      // "margin", "turnout" (default: "margin")
@@ -901,13 +953,15 @@ Mest betydelsefulla voteringar baserat på marginaler eller deltagande.
 Fullständig ledamotsprofil med uppdrag och historik.
 
 **Parameters:**
+
 ```typescript
 {
-  intressent_id: string;  // REQUIRED: Ledamotens intressent ID
+  intressent_id: string; // REQUIRED: Ledamotens intressent ID
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -937,13 +991,15 @@ Fullständig ledamotsprofil med uppdrag och historik.
 Komplett dokumentinformation med innehåll och metadata.
 
 **Parameters:**
+
 ```typescript
 {
-  dok_id: string;  // REQUIRED: Dokument ID
+  dok_id: string; // REQUIRED: Dokument ID
 }
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -970,6 +1026,7 @@ Komplett dokumentinformation med innehåll och metadata.
 Hämta motioner från riksdagen.
 
 **Parameters:**
+
 ```typescript
 {
   rm?: string;     // Riksmöte
@@ -985,6 +1042,7 @@ Hämta motioner från riksdagen.
 Hämta propositioner från riksdagen.
 
 **Parameters:**
+
 ```typescript
 {
   rm?: string;    // Riksmöte
@@ -999,6 +1057,7 @@ Hämta propositioner från riksdagen.
 Hämta utskottsbetänkanden.
 
 **Parameters:**
+
 ```typescript
 {
   rm?: string;       // Riksmöte
@@ -1016,6 +1075,7 @@ Lista alla riksdagens utskott.
 **Parameters:** None
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -1034,19 +1094,25 @@ Lista alla riksdagens utskott.
 ## Common Parameters
 
 ### Date Format
+
 Alla datum använder format: `YYYY-MM-DD`
+
 ```
 Exempel: "2024-10-15"
 ```
 
 ### Limit Parameter
+
 Alla verktyg med resultat-listor har `limit` parameter:
+
 - Default: 50
 - Max: 500
 - Min: 1
 
 ### Riksmöte Format
+
 Riksmöten anges som: `YYYY/YY`
+
 ```
 Exempel: "2024/25" (riksmötet 2024-2025)
 ```
@@ -1056,6 +1122,7 @@ Exempel: "2024/25" (riksmötet 2024-2025)
 ## Error Handling
 
 ### Standard Error Response
+
 ```json
 {
   "success": false,
@@ -1071,6 +1138,7 @@ Exempel: "2024/25" (riksmötet 2024-2025)
 ```
 
 ### Error Codes
+
 - `INVALID_PARAMETER` - Ogiltig parameter
 - `MISSING_REQUIRED_PARAMETER` - Saknad obligatorisk parameter
 - `NOT_FOUND` - Resurs hittades inte
@@ -1083,46 +1151,41 @@ Exempel: "2024/25" (riksmötet 2024-2025)
 ## Rate Limiting
 
 **Current Limits:**
-- **Remote HTTP:** Ingen rate limiting (fri användning)
+
 - **npm Package (lokal):** Ingen rate limiting
 
-**Planned:**
-- **Future:** 1000 requests/hour per IP för remote server
-
-**Headers:**
-```
-X-RateLimit-Limit: 1000
-X-RateLimit-Remaining: 987
-X-RateLimit-Reset: 1730458800
-```
+Observera att Riksdagens och g0v.se:s API:er kan ha egna begränsningar som tillämpas uppströms.
 
 ---
 
 ## Best Practices
 
 ### Effektiv Sökning
+
 1. Använd `limit` parameter för att begränsa resultat
 2. Kombinera flera filter för specifika sökningar
 3. Använd datum-filter för tidsavgränsade sökningar
 
 ### Caching
+
 - Cachea resultat lokalt när möjligt
 - Statisk data (ledamöter, utskott) ändras sällan
 - Dokument kan cachas permanent efter publicering
 
 ### Felhantering
+
 ```javascript
 try {
-  const result = await mcp.call('search_dokument', {
-    doktyp: 'mot',
-    rm: '2024/25'
+  const result = await mcp.call("search_dokument", {
+    doktyp: "mot",
+    rm: "2024/25",
   });
 
   if (!result.success) {
-    console.error('Error:', result.error.message);
+    console.error("Error:", result.error.message);
   }
 } catch (error) {
-  console.error('Network error:', error);
+  console.error("Network error:", error);
 }
 ```
 

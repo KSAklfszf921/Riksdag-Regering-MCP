@@ -4,7 +4,6 @@
   "title": "Riksdag & Regering MCP",
   "description": "Direktkopplad MCP-server med öppna API-anrop mot Riksdagen och g0v.se",
   "version": "2.1.0",
-  "websiteUrl": "https://riksdag-regering-ai.onrender.com",
   "repository": {
     "url": "https://github.com/KSAklfszf921/Riksdag-Regering-MCP",
     "source": "github",
@@ -26,12 +25,6 @@
       "transport": {
         "type": "stdio"
       }
-    }
-  ],
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://riksdag-regering-ai.onrender.com/mcp"
     }
   ]
 }

@@ -23,9 +23,9 @@ Starta i STDIO-läge (Claude Desktop, Cline m.fl.):
 }
 ```
 
-## Remote HTTP
+## HTTP-läge (valfritt)
 
-Servern kan även köras i HTTP-läge (Render, Docker, etc.).
+Servern kan även köras i HTTP-läge lokalt eller i egen container.
 
 ```bash
 npx riksdag-regering-mcp --http --port 3000
@@ -33,10 +33,10 @@ npx riksdag-regering-mcp --http --port 3000
 
 Tillåtna miljövariabler:
 
-| Variabel | Beskrivning |
-| --- | --- |
-| `API_KEY` | Valfritt. Om satt krävs `x-api-key` för `/mcp`-endpointen |
-| `RIKSDAG_USER_AGENT` | Override av User-Agent mot data.riksdagen.se |
+| Variabel             | Beskrivning                                               |
+| -------------------- | --------------------------------------------------------- |
+| `API_KEY`            | Valfritt. Om satt krävs `x-api-key` för `/mcp`-endpointen |
+| `RIKSDAG_USER_AGENT` | Override av User-Agent mot data.riksdagen.se              |
 
 ## Datakällor
 

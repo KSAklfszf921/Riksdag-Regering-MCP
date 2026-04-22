@@ -21,17 +21,14 @@ Praktiska guider och exempel för vanliga användningsfall med Riksdag & Regerin
 
 ### Installation (3 minuter)
 
-**Alternativ 1: Remote HTTP (Snabbast)**
-```bash
-claude mcp add riksdag-regering --transport http https://riksdag-regering-ai.onrender.com/mcp
-```
+**Alternativ 1: npm Package**
 
-**Alternativ 2: npm Package**
 ```bash
 npm install -g riksdag-regering-mcp
 ```
 
-**Alternativ 3: Lokal Installation**
+**Alternativ 2: Lokal Installation**
+
 ```bash
 git clone https://github.com/KSAklfszf921/Riksdag-Regering-MCP.git
 cd Riksdag-Regering-MCP/mcp
@@ -41,31 +38,34 @@ npm install && npm run build
 ### Din Första Query (2 minuter)
 
 **Exempel 1: Hitta Alla Socialdemokrater**
+
 ```javascript
 // I Claude Desktop, ChatGPT, eller annan MCP-klient
 search_ledamoter({
   parti: "S",
-  limit: 10
-})
+  limit: 10,
+});
 
 // Resultat: Lista med 10 socialdemokratiska ledamöter
 ```
 
 **Exempel 2: Sök Klimatmotioner**
+
 ```javascript
 search_dokument({
   doktyp: "mot",
   titel: "klimat",
   rm: "2024/25",
-  limit: 20
-})
+  limit: 20,
+});
 
 // Resultat: 20 motioner om klimat från 2024/25
 ```
 
 **Exempel 3: Partifördelning**
+
 ```javascript
-analyze_partifordelning()
+analyze_partifordelning();
 
 // Resultat: Antal ledamöter per parti med procent
 ```
@@ -75,6 +75,7 @@ analyze_partifordelning()
 ## Use Case 1: Spåra Ledamöters Aktivitet
 
 ### Scenario
+
 Du vill analysera en specifik ledamots aktivitet i riksdagen och jämföra med andra ledamöter.
 
 ### Steg 1: Hitta Ledamoten
@@ -84,7 +85,7 @@ Du vill analysera en specifik ledamots aktivitet i riksdagen och jämföra med a
 const result = search_ledamoter({
   namn: "Andersson",
   parti: "S",
-  limit: 5
+  limit: 5,
 });
 
 // Resultat innehåller intressent_id
@@ -95,14 +96,14 @@ const ledamotId = result.data[0].intressent_id;
 
 ```javascript
 const profil = get_ledamot({
-  intressent_id: ledamotId
+  intressent_id: ledamotId,
 });
 
 console.log(`
 Namn: ${profil.data.personinfo.fornamn} ${profil.data.personinfo.efternamn}
 Parti: ${profil.data.nuvarande_uppdrag.parti}
 Valkrets: ${profil.data.nuvarande_uppdrag.valkrets}
-Utskott: ${profil.data.utskott.join(', ')}
+Utskott: ${profil.data.utskott.join(", ")}
 `);
 ```
 
@@ -112,7 +113,7 @@ Utskott: ${profil.data.utskott.join(', ')}
 const aktivitet = analyze_ledamot({
   intressent_id: ledamotId,
   from_date: "2024-01-01",
-  to_date: "2024-10-31"
+  to_date: "2024-10-31",
 });
 
 console.log(`
@@ -131,7 +132,7 @@ Statistik (Jan-Okt 2024):
 const ledamot2Result = search_ledamoter({
   namn: "Bengtsson",
   parti: "M",
-  limit: 1
+  limit: 1,
 });
 
 const ledamot2Id = ledamot2Result.data[0].intressent_id;
@@ -139,7 +140,7 @@ const ledamot2Id = ledamot2Result.data[0].intressent_id;
 // Jämför
 const jamforelse = compare_ledamoter({
   intressent_id_1: ledamotId,
-  intressent_id_2: ledamot2Id
+  intressent_id_2: ledamot2Id,
 });
 
 console.log(`
@@ -155,6 +156,7 @@ Jämförelse:
 ## Use Case 2: Analysera Partiröstning
 
 ### Scenario
+
 Analysera hur partier röstar i specifika frågor och identifiera samarbetsmönster.
 
 ### Steg 1: Hitta Relevanta Voteringar
@@ -164,7 +166,7 @@ Analysera hur partier röstar i specifika frågor och identifiera samarbetsmöns
 const voteringar = search_voteringar({
   titel: "klimat",
   rm: "2024/25",
-  limit: 5
+  limit: 5,
 });
 
 // Välj första voteringen
@@ -175,7 +177,7 @@ const voteringId = voteringar.data[0].votering_id;
 
 ```javascript
 const analys = analyze_votering({
-  votering_id: voteringId
+  votering_id: voteringId,
 });
 
 console.log(`
@@ -190,8 +192,10 @@ Röstfördelning:
 `);
 
 // Visa partistatistik
-analys.data.partistatistik.forEach(parti => {
-  console.log(`${parti.parti}: Ja=${parti.ja}, Nej=${parti.nej}, Avstående=${parti.avstående}`);
+analys.data.partistatistik.forEach((parti) => {
+  console.log(
+    `${parti.parti}: Ja=${parti.ja}, Nej=${parti.nej}, Avstående=${parti.avstående}`,
+  );
 });
 ```
 
@@ -204,12 +208,12 @@ const votering2Id = voteringar.data[1].votering_id;
 // Jämför hur partier röstade
 const rostJamforelse = compare_parti_rostning({
   votering_id_1: voteringId,
-  votering_id_2: votering2Id
+  votering_id_2: votering2Id,
 });
 
 // Identifiera partier som ändrat position
 const andradePosition = rostJamforelse.data.partijamforelse.filter(
-  p => !p.konsekvens
+  (p) => !p.konsekvens,
 );
 
 console.log(`Partier som ändrade röstning: ${andradePosition.length}`);
@@ -222,7 +226,7 @@ console.log(`Partier som ändrade röstning: ${andradePosition.length}`);
 const partiAnalys = analyze_parti_activity({
   parti: "S",
   from_date: "2024-01-01",
-  to_date: "2024-10-31"
+  to_date: "2024-10-31",
 });
 
 console.log(`
@@ -239,6 +243,7 @@ Socialdemokraternas aktivitet 2024:
 ## Use Case 3: Dokumentsökning & Jämförelse
 
 ### Scenario
+
 Hitta och analysera riksdagsdokument, jämför med regeringsdokument.
 
 ### Steg 1: Sök Motioner om Specifikt Ämne
@@ -248,9 +253,9 @@ Hitta och analysera riksdagsdokument, jämför med regeringsdokument.
 const motioner = search_dokument({
   doktyp: "mot",
   titel: "klimat",
-  organ: "MJU",  // Miljö- och jordbruksutskottet
+  organ: "MJU", // Miljö- och jordbruksutskottet
   rm: "2024/25",
-  limit: 10
+  limit: 10,
 });
 
 console.log(`Hittade ${motioner.meta.count} motioner`);
@@ -262,13 +267,13 @@ console.log(`Hittade ${motioner.meta.count} motioner`);
 const dokId = motioner.data[0].dok_id;
 
 const dokument = get_dokument({
-  dok_id: dokId
+  dok_id: dokId,
 });
 
 console.log(`
 Titel: ${dokument.data.titel}
 Datum: ${dokument.data.datum}
-Undertecknare: ${dokument.data.undertecknare.join(', ')}
+Undertecknare: ${dokument.data.undertecknare.join(", ")}
 
 Sammanfattning:
 ${dokument.data.sammanfattning}
@@ -281,7 +286,7 @@ ${dokument.data.sammanfattning}
 // Sök relaterade regeringsdokument
 const riksdagRegering = compare_riksdag_regering({
   searchTerm: "klimat",
-  limit: 5
+  limit: 5,
 });
 
 console.log(`
@@ -291,7 +296,7 @@ Regeringsdokument: ${riksdagRegering.data.regeringen.length}
 Identifierade korrelationer:
 `);
 
-riksdagRegering.data.korrelationer.forEach(korr => {
+riksdagRegering.data.korrelationer.forEach((korr) => {
   console.log(`- Likhet: ${(korr.likhetsscore * 100).toFixed(0)}%`);
 });
 ```
@@ -305,14 +310,14 @@ const pressmed = search_regering({
   titel: "klimat",
   departement: "Klimat- och näringslivsdepartementet",
   from_date: "2024-10-01",
-  limit: 10
+  limit: 10,
 });
 
 // Sök SOU-betänkanden
 const sou = search_regering({
   dataType: "sou",
   titel: "klimat",
-  limit: 5
+  limit: 5,
 });
 ```
 
@@ -322,21 +327,21 @@ const sou = search_regering({
 // Analysera dokumenttrender
 const statistik = analyze_dokument_statistik({
   doktyp: "mot",
-  rm: "2024/25"
+  rm: "2024/25",
 });
 
 console.log(`
 Total motioner 2024/25: ${statistik.data.total_dokument}
 
 Per utskott:
-${Object.entries(statistik.data.per_organ).map(
-  ([organ, antal]) => `- ${organ}: ${antal}`
-).join('\n')}
+${Object.entries(statistik.data.per_organ)
+  .map(([organ, antal]) => `- ${organ}: ${antal}`)
+  .join("\n")}
 
 Trender:
-${statistik.data.trender.map(
-  t => `${t.manad}: ${t.antal} dokument`
-).join('\n')}
+${statistik.data.trender
+  .map((t) => `${t.manad}: ${t.antal} dokument`)
+  .join("\n")}
 `);
 ```
 
@@ -345,6 +350,7 @@ ${statistik.data.trender.map(
 ## Use Case 4: Trendanalys
 
 ### Scenario
+
 Analysera trender i parlamentarisk aktivitet över tid.
 
 ### Steg 1: Anförandetrender per Månad
@@ -354,13 +360,15 @@ const anforandeTrend = analyze_trend({
   dataType: "anforanden",
   groupBy: "month",
   from_date: "2024-01-01",
-  to_date: "2024-10-31"
+  to_date: "2024-10-31",
 });
 
 // Visualisera trend
 console.log("Anföranden per månad 2024:");
-anforandeTrend.data.tidserie.forEach(period => {
-  console.log(`${period.period}: ${period.antal} (avg ${period.genomsnitt_per_dag}/dag)`);
+anforandeTrend.data.tidserie.forEach((period) => {
+  console.log(
+    `${period.period}: ${period.antal} (avg ${period.genomsnitt_per_dag}/dag)`,
+  );
 });
 
 console.log(`
@@ -379,17 +387,17 @@ const dokumentTrend = analyze_trend({
   dataType: "dokument",
   groupBy: "week",
   from_date: "2024-09-01",
-  to_date: "2024-10-31"
+  to_date: "2024-10-31",
 });
 
 // Identifiera mest aktiva veckor
 const sorterad = [...dokumentTrend.data.tidserie].sort(
-  (a, b) => b.antal - a.antal
+  (a, b) => b.antal - a.antal,
 );
 
 console.log("Top 5 mest aktiva veckor:");
 sorterad.slice(0, 5).forEach((vecka, i) => {
-  console.log(`${i+1}. Vecka ${vecka.period}: ${vecka.antal} dokument`);
+  console.log(`${i + 1}. Vecka ${vecka.period}: ${vecka.antal} dokument`);
 });
 ```
 
@@ -401,14 +409,14 @@ const trend2023 = analyze_trend({
   dataType: "voteringar",
   groupBy: "year",
   from_date: "2023-01-01",
-  to_date: "2023-12-31"
+  to_date: "2023-12-31",
 });
 
 const trend2024 = analyze_trend({
   dataType: "voteringar",
   groupBy: "year",
   from_date: "2024-01-01",
-  to_date: "2024-10-31"
+  to_date: "2024-10-31",
 });
 
 console.log(`
@@ -423,6 +431,7 @@ Voteringar:
 ## Use Case 5: Regeringsdokumentation
 
 ### Scenario
+
 Spåra regeringens kommunikation och utredningar.
 
 ### Steg 1: Senaste Pressmeddelanden
@@ -431,11 +440,11 @@ Spåra regeringens kommunikation och utredningar.
 const senastePM = search_regering({
   dataType: "pressmeddelanden",
   from_date: "2024-10-01",
-  limit: 20
+  limit: 20,
 });
 
 console.log(`Senaste ${senastePM.data.length} pressmeddelanden:`);
-senastePM.data.forEach(pm => {
+senastePM.data.forEach((pm) => {
   console.log(`${pm.datum}: ${pm.titel} (${pm.departement})`);
 });
 ```
@@ -447,7 +456,7 @@ senastePM.data.forEach(pm => {
 const souLista = search_regering({
   dataType: "sou",
   from_date: "2024-01-01",
-  limit: 50
+  limit: 50,
 });
 
 // Gruppera per departement
@@ -470,7 +479,7 @@ Object.entries(perDepartement).forEach(([dept, antal]) => {
 const regProp = search_regering({
   dataType: "propositioner",
   from_date: "2024-09-01",
-  limit: 10
+  limit: 10,
 });
 
 // Hitta motsvarande dokument i riksdagen
@@ -478,7 +487,7 @@ for (const prop of regProp.data) {
   const riksdagProp = search_dokument({
     doktyp: "prop",
     titel: prop.titel.substring(0, 20), // Sök på början av titeln
-    limit: 1
+    limit: 1,
   });
 
   if (riksdagProp.data.length > 0) {
@@ -502,14 +511,14 @@ async function samlaRiksmoteData(riksmote) {
     ledamoter: [],
     dokument: [],
     voteringar: [],
-    anforanden: []
+    anforanden: [],
   };
 
   // Hämta i parallell
   const [ledamoter, dokument, voteringar] = await Promise.all([
     search_ledamoter({ limit: 500 }),
     search_dokument({ rm: riksmote, limit: 500 }),
-    search_voteringar({ rm: riksmote, limit: 500 })
+    search_voteringar({ rm: riksmote, limit: 500 }),
   ]);
 
   data.ledamoter = ledamoter.data;
@@ -537,7 +546,7 @@ async function hamtaAllaResultat(searchFunc, params, maxLimit = 1000) {
     const batch = await searchFunc({
       ...params,
       limit: batchSize,
-      offset: offset
+      offset: offset,
     });
 
     resultat.push(...batch.data);
@@ -553,10 +562,10 @@ async function hamtaAllaResultat(searchFunc, params, maxLimit = 1000) {
 }
 
 // Användning
-const allaMotioner = await hamtaAllaResultat(
-  search_dokument,
-  { doktyp: "mot", rm: "2024/25" }
-);
+const allaMotioner = await hamtaAllaResultat(search_dokument, {
+  doktyp: "mot",
+  rm: "2024/25",
+});
 ```
 
 ### Pattern 3: Caching Strategy
@@ -564,7 +573,8 @@ const allaMotioner = await hamtaAllaResultat(
 ```javascript
 // Enkel cache-implementation
 class MCPCache {
-  constructor(ttl = 3600000) { // 1 timme default
+  constructor(ttl = 3600000) {
+    // 1 timme default
     this.cache = new Map();
     this.ttl = ttl;
   }
@@ -584,7 +594,7 @@ class MCPCache {
   set(key, value) {
     this.cache.set(key, {
       value,
-      expires: Date.now() + this.ttl
+      expires: Date.now() + this.ttl,
     });
   }
 }
@@ -613,7 +623,7 @@ async function getCachedLedamot(id) {
 ### TypeScript Integration
 
 ```typescript
-import { MCPClient } from '@modelcontextprotocol/sdk';
+import { MCPClient } from "@modelcontextprotocol/sdk";
 
 interface Ledamot {
   intressent_id: string;
@@ -629,7 +639,7 @@ class RiksdagAPI {
   constructor(serverUrl: string) {
     this.client = new MCPClient({
       url: serverUrl,
-      transport: 'http'
+      transport: "http",
     });
   }
 
@@ -638,27 +648,27 @@ class RiksdagAPI {
     valkrets?: string;
     limit?: number;
   }): Promise<Ledamot[]> {
-    const result = await this.client.callTool('search_ledamoter', params);
+    const result = await this.client.callTool("search_ledamoter", params);
     return result.data as Ledamot[];
   }
 
   async analyzeTrend(
-    dataType: 'dokument' | 'anforanden' | 'voteringar',
-    groupBy: 'day' | 'week' | 'month' | 'year',
-    dateRange?: { from: string; to: string }
+    dataType: "dokument" | "anforanden" | "voteringar",
+    groupBy: "day" | "week" | "month" | "year",
+    dateRange?: { from: string; to: string },
   ) {
-    return this.client.callTool('analyze_trend', {
+    return this.client.callTool("analyze_trend", {
       dataType,
       groupBy,
       from_date: dateRange?.from,
-      to_date: dateRange?.to
+      to_date: dateRange?.to,
     });
   }
 }
 
 // Användning
-const api = new RiksdagAPI('https://riksdag-regering-ai.onrender.com/mcp');
-const socialdemokrater = await api.searchLedamoter({ parti: 'S' });
+const api = new RiksdagAPI("http://localhost:3000/mcp");
+const socialdemokrater = await api.searchLedamoter({ parti: "S" });
 ```
 
 ### React Hook
@@ -678,7 +688,7 @@ function useMCPQuery<T>(
 
   useEffect(() => {
     const client = new MCPClient({
-      url: 'https://riksdag-regering-ai.onrender.com/mcp',
+      url: 'http://localhost:3000/mcp',
       transport: 'http'
     });
 
@@ -750,7 +760,7 @@ class RiksdagClient:
         })
 
 # Användning
-client = RiksdagClient('https://riksdag-regering-ai.onrender.com/mcp')
+client = RiksdagClient('http://localhost:3000/mcp')
 activity = client.search_recent_activity(days=30)
 print(f"Nya dokument: {activity['statistik']['nya_dokument']}")
 ```
@@ -760,28 +770,32 @@ print(f"Nya dokument: {activity['statistik']['nya_dokument']}")
 ## Tips & Best Practices
 
 ### 1. Effektiv Frågeställning
+
 - Använd specifika filter för att minska resultatmängd
 - Kombinera `from_date` och `to_date` för tidsavgränsning
 - Sätt lämplig `limit` baserat på användningsfall
 
 ### 2. Performance
+
 - Cachea statisk data (ledamöter, utskott)
 - Använd parallella requests när möjligt
 - Begränsa resultatmängder i första hand
 
 ### 3. Felsökning
+
 ```javascript
 // Aktivera detaljerad logging
-const result = await mcp.callTool('search_dokument', params);
+const result = await mcp.callTool("search_dokument", params);
 
 if (!result.success) {
-  console.error('Error:', result.error);
-  console.error('Code:', result.error.code);
-  console.error('Details:', result.error.details);
+  console.error("Error:", result.error);
+  console.error("Code:", result.error.code);
+  console.error("Details:", result.error.details);
 }
 ```
 
 ### 4. Rate Limiting
+
 - Remote HTTP har för närvarande ingen rate limiting
 - Planerat: 1000 req/timme per IP
 - Använd caching för att minimera requests
@@ -792,7 +806,6 @@ if (!result.success) {
 
 - **API Reference:** [API_REFERENCE.md](API_REFERENCE.md)
 - **GitHub:** https://github.com/KSAklfszf921/Riksdag-Regering-MCP
-- **Live Server:** https://riksdag-regering-ai.onrender.com
 - **npm Package:** https://www.npmjs.com/package/riksdag-regering-mcp
 
 ---

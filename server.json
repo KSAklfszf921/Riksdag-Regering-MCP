@@ -7,11 +7,5 @@
     "url": "https://github.com/isakskogstad/Riksdag-Regering-MCP",
     "source": "github",
     "id": "1087404908"
-  },
-  "remotes": [
-    {
-      "type": "streamable-http",
-      "url": "https://riksdag-regering-ai.onrender.com/mcp"
-    }
-  ]
+  }
 }

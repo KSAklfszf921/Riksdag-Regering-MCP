@@ -26,12 +26,11 @@ Den här guiden beskriver den nuvarande, helt API-drivna architekturen. MCP-serv
    npm run build
    npm start
    ```
-3. Lägg till servern i din MCP-klient (Claude, ChatGPT, Codex) via STDIO eller HTTP.
+3. Lägg till servern i din MCP-klient (Claude, ChatGPT, Codex) via STDIO.
 
 ## Deployment
 
-- Remote-servern som hostas på Render använder samma build-kommandon (`npm run build` följt av `node dist/server.js`).
-- Valfri hosting-plattform fungerar så länge Node.js 20+ finns tillgängligt.
+- Valfri hosting-plattform fungerar så länge Node.js 20+ finns tillgängligt (`npm run build` följt av `node dist/server.js`).
 - Sätt miljövariabeln `API_KEY` om du vill kräva `x-api-key` för `/mcp`-endpointen.
 
 ## Vidare läsning

@@ -1,13 +1,12 @@
-<img width="1360" height="497" alt="Skärmavbild 2025-11-20 kl  09 01 01" src="https://github.com/user-attachments/assets/2d1daf29-80f0-4404-b01a-4cc3705bcf69" />
+<img width="1360" height="497" alt="Skärmavbild 2025-11-20 kl  09 01 01" src="https://github.com/user-attachments/assets/2d1daf29-80f0-4404-b01a-4cc3705bcf69" />
 
-# Riksdag & Regering MCP-server  
+# Riksdag & Regering MCP-server
 
-[![Server Status](https://img.shields.io/website?url=https%3A%2F%2Friksdag-regering-ai.onrender.com%2Fhealth&label=Server%20Status&up_message=online&down_message=offline)](https://riksdag-regering-ai.onrender.com/health)
 [![MCP Registry](https://img.shields.io/badge/MCP%20Registry-Published-brightgreen)](https://registry.modelcontextprotocol.io/servers/io.github.KSAklfszf921/Riksdag-Regering-MCP)
 [![MCP Protocol](https://img.shields.io/badge/MCP-2025--03--26-green)](https://modelcontextprotocol.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-🇺🇸 Open-source MCP-server for local self-hosting or remote deployment. Enables LLMs to query and retrieve real-time open data, documents, protocols, and records from accessible API:s and open databases from the Parliament and Government Offices of Sweden.
+🇺🇸 Open-source MCP-server for local self-hosting. Enables LLMs to query and retrieve real-time open data, documents, protocols, and records from accessible API:s and open databases from the Parliament and Government Offices of Sweden.
 
 🇸🇪 MCP-server som ger LLMs möjlighet att söka, hitta och extrahera öppen data och information från Riksdagen och Regeringskansliet. Ansluten till samtliga öppna API:er från Riksdagen och nyttjar g0v.se för att tillgå data från Regeringskansliet.
 
@@ -20,13 +19,10 @@
 MCP-servern exponerar 32 specialiserade verktyg för att hämta data och underlag, som exempelvis:
 
 - **Ledamöter** – Information, aktiviteter, uppdrag m.m.
-- **Riksdagsdokument**  – Motioner, skriftliga frågor m.m.
-- **Anföranden**  – Följ vad som sagts i kammaren m.m.
-- **Voteringar**  – Så röstar ledamöterna
-- **Regeringsdokument**  – Ex. SOU, propositioner, pressmeddelanden
-
-
-
+- **Riksdagsdokument** – Motioner, skriftliga frågor m.m.
+- **Anföranden** – Följ vad som sagts i kammaren m.m.
+- **Voteringar** – Så röstar ledamöterna
+- **Regeringsdokument** – Ex. SOU, propositioner, pressmeddelanden
 
 ### Datakällor
 
@@ -37,67 +33,12 @@ MCP-servern exponerar 32 specialiserade verktyg för att hämta data och underla
 
 ## Snabbstart
 
-### Alternativ 1: Remote Server (Rekommenderat)
-
-Använd den hostade servern utan installation - alltid uppdaterad och tillgänglig!
-
-**Fördelar:**
-- ✅ Ingen installation eller konfiguration
-- ✅ Alltid senaste versionen
-- ✅ Fungerar direkt i alla MCP-klienter
-
-#### För Claude Desktop (macOS/Windows)
-
-```bash
-claude mcp add riksdag-regering --transport http https://riksdag-regering-ai.onrender.com/mcp
-```
-
-<details>
-<summary>Eller lägg till manuellt i config</summary>
-
-**macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-**Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "riksdag-regering": {
-      "transport": "http",
-      "url": "https://riksdag-regering-ai.onrender.com/mcp"
-    }
-  }
-}
-```
-</details>
-
-#### För ChatGPT (GPT-4.5+)
-
-1. Gå till **ChatGPT Settings → MCP Servers**
-2. Klicka på **"Add Server"**
-3. Välj **"Remote Server (HTTP)"**
-4. Ange URL: `https://riksdag-regering-ai.onrender.com/mcp`
-5. Namn: `riksdag-regering`
-6. Klicka **"Save"**
-
-#### För OpenAI Codex / Claude Code
-
-```bash
-# Via MCP CLI
-mcp add riksdag-regering https://riksdag-regering-ai.onrender.com/mcp
-
-# Eller testa direkt med curl
-curl -X POST https://riksdag-regering-ai.onrender.com/mcp \
-  -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
-```
-
----
-
-### 📦 Alternativ 2: npm Package (Rekommenderat för utvecklare)
+### 📦 Alternativ 1: npm Package (Rekommenderat)
 
 Installera direkt från npm registry:
 
 **Fördelar:**
+
 - ✅ Enkel installation med ett kommando
 - ✅ Automatiska uppdateringar via npm
 - ✅ Fungerar i alla MCP-kompatibla miljöer
@@ -125,11 +66,12 @@ npm install riksdag-regering-mcp
 
 ---
 
-### 💻 Alternativ 3: Lokal Installation från Källkod
+### 💻 Alternativ 2: Lokal Installation från Källkod
 
 För utveckling eller om du vill modifiera servern lokalt:
 
 **Fördelar:**
+
 - ✅ Full kontroll över data och prestanda
 - ✅ Kan anpassa och utöka funktionalitet
 - ✅ Fungerar offline (efter initial setup)
@@ -161,6 +103,7 @@ npm start
   }
 }
 ```
+
 </details>
 
 ---
@@ -170,23 +113,26 @@ npm start
 ## 📖 Användningsområden
 
 ### För policynörden
+
 - Spåra voteringsmönster över partier
 - Analysera ledamöters aktivitet och engagemang
 
 ### För den nyfikkne
+
 - Korsreferera riksdags- och regeringsdokument
 - Hitta relevanta anföranden och debatter
 
 ### För konspiratören
+
 - Tidsserieanalys av parlamentarisk aktivitet
 - Partijämförelser och koalitionsanalys
 
 ### För vibekodaren
+
 - Utöka LLM:er med svensk politisk data
 - Bygg konversationsgränssnitt för medborgardata
 
 ---
-
 
 ### Teknisk Stack
 
@@ -215,4 +161,5 @@ MIT License - Se [LICENSE](LICENSE) för detaljer.
 ## 📞Support
 
 ### Kontakt
+
 - **Email:** [isak.skogstad@me.com](mailto:isak.skogstad@me.com)

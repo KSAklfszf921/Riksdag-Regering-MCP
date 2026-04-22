@@ -1,6 +1,7 @@
 # MCP Registry Registration Guide
 
 ## Status
+
 ✅ **server.json Created** - Ready for registration when mcp-publisher CLI is available
 
 ## Registration Information
@@ -66,17 +67,14 @@ curl "https://registry.modelcontextprotocol.io/v0/servers?search=io.github.KSAkl
 
 While awaiting official registry listing, the server is accessible via:
 
-### 1. Remote HTTP (Recommended)
-```bash
-claude mcp add riksdag-regering --transport http https://riksdag-regering-ai.onrender.com/mcp
-```
+### 1. npm Package
 
-### 2. npm Package
 ```bash
 npm install -g riksdag-regering-mcp
 ```
 
-### 3. Local Installation
+### 2. Local Installation
+
 ```bash
 git clone https://github.com/KSAklfszf921/Riksdag-Regering-MCP.git
 cd Riksdag-Regering-MCP/mcp
