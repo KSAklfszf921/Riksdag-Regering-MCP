@@ -1,7 +1,10 @@
 {
-  "name": "riksdag-regering-mcp",
+  "name": "@isak.skogstad/riksdag-regering-mcp",
   "version": "2.2.1",
   "mcpName": "io.github.isakskogstad/riksdag-regering-mcp",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Professionell MCP server för att hämta, söka, analysera och jämföra data från Riksdagen och Regeringskansliet. Innehåller 27 verktyg och 5 resources med förbättrad säkerhet och response validation.",
   "main": "dist/index.js",
   "type": "module",

@@ -33,7 +33,26 @@ MCP-servern exponerar 32 specialiserade verktyg för att hämta data och underla
 
 ## Snabbstart
 
-### 💻 Installation från källkod
+### 📦 Alternativ 1: npm (rekommenderat)
+
+Lägg till följande i din Claude Desktop-config (`~/Library/Application Support/Claude/claude_desktop_config.json` på macOS):
+
+```json
+{
+  "mcpServers": {
+    "riksdag-regering": {
+      "command": "npx",
+      "args": ["-y", "@isak.skogstad/riksdag-regering-mcp"]
+    }
+  }
+}
+```
+
+Starta om Claude Desktop. `npx` hämtar och kör senaste versionen automatiskt.
+
+---
+
+### 💻 Alternativ 2: Installation från källkod
 
 ```bash
 # Klona repository
@@ -47,9 +66,7 @@ npm run mcp:install
 npm run mcp:build
 ```
 
-#### STDIO-konfiguration för Claude Desktop
-
-Lägg till följande i din Claude Desktop-config (`~/Library/Application Support/Claude/claude_desktop_config.json` på macOS):
+Konfiguration:
 
 ```json
 {
@@ -61,8 +78,6 @@ Lägg till följande i din Claude Desktop-config (`~/Library/Application Support
   }
 }
 ```
-
-Starta om Claude Desktop — servern startas automatiskt via stdio.
 
 ---
 

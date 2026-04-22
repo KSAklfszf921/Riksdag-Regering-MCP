@@ -15,5 +15,16 @@
       "mimeType": "image/png",
       "sizes": ["800x800"]
     }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@isak.skogstad/riksdag-regering-mcp",
+      "version": "2.2.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
   ]
 }
